@@ -86,6 +86,7 @@
   <div class="buttons">
     <button class="btn" onclick="loadPlayer('mass')">⛪ Live Mass / Replay</button>
     <button class="btn" onclick="loadPlayer('sermon')">🎙️ Sunday Sermon</button>
+    <button class="btn" onclick="loadPlayer('special')">✨ Special Events</button>
   </div>
 
   <div class="player-container" id="player">
@@ -95,7 +96,8 @@
   <script>
     const streams = {
       mass: 'https://control.resi.io/webplayer/video.html?id=8c6cae64-d58a-4753-89be-54a7d8190d56',
-      sermon: 'https://control.resi.io/webplayer/video.html?id=541c26ac-3c58-40e6-9899-5cb9bc8ccac2'
+      sermon: 'https://control.resi.io/webplayer/video.html?id=541c26ac-3c58-40e6-9899-5cb9bc8ccac2',
+      special: 'https://control.resi.io/webplayer/video.html?id=26e22bda-9ea5-4505-a32c-f2fb92cf26e2'
     };
 
     function loadPlayer(type) {
