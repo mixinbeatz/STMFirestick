@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Saint Thomas More – Glendale</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background-color: #1a1a2e;
+      color: #f0f0f0;
+      font-family: 'Georgia', serif;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      color: #c9a84c;
+      margin-bottom: 0.3rem;
+      letter-spacing: 0.05em;
+    }
+
+    .subtitle {
+      font-size: 1rem;
+      color: #aaa;
+      margin-bottom: 2.5rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }.buttons {
+      display: flex;
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .btn {
+      background-color: #2a2a4a;
+      color: #f0f0f0;
+      border: 2px solid #c9a84c;
+      padding: 1.2rem 2.5rem;
+      font-size: 1.2rem;
+      font-family: 'Georgia', serif;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s;
+      min-width: 220px;
+      text-align: center;
+    }
+
+    .btn:hover, .btn:focus {
+      background-color: #c9a84c;
+      color: #1a1a2e;
+      outline: none;
+      transform: scale(1.05);
+    }
+
+    .player-container {
+      position: relative;
+      width: 80vw;
+      padding-top: 45vw;
+      max-width: 1200px;
+      max-height: 675px;
+      display: none;
+    }
+
+    .player-container.active {
+      display: block;
+    }
+
+    iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      border: none;
+      border-radius: 8px;
+    }
+  </style>
+</head><body>
+  <h1>Saint Thomas More</h1>
+  <p class="subtitle">Glendale, Arizona</p>
+
+  <div class="buttons">
+    <button class="btn" onclick="loadPlayer('mass')">⛪ Live Mass / Replay</button>
+    <button class="btn" onclick="loadPlayer('sermon')">🎙️ Sunday Sermon</button>
+  </div>
+
+  <div class="player-container" id="player">
+    <iframe id="videoFrame" src="" allow="autoplay; fullscreen" allowfullscreen="true"></iframe>
+  </div>
+
+  <script>
+    const streams = {
+      mass: 'https://control.resi.io/webplayer/video.html?id=8c6cae64-d58a-4753-89be-54a7d8190d56',
+      sermon: 'https://control.resi.io/webplayer/video.html?id=541c26ac-3c58-40e6-9899-5cb9bc8ccac2'
+    };
+
+    function loadPlayer(type) {
+      document.getElementById('videoFrame').src = streams[type];
+      document.getElementById('player').classList.add('active');
+    }
+  </script>
+</body>
+</html>
